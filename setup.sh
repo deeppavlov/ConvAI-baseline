@@ -10,3 +10,8 @@ pip3 install -r bot_code/requirements.txt
 cd question_generation
 ./setup
 cd $OLDPWD
+
+#question answering
+cd bi-att-flow
+./setup
+cd $OLDPWD

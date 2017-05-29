@@ -40,7 +40,9 @@ class StoriesHandler:
 
 
 def get_answer(paragraph, question):
-    return "STUB ANSWER"
+    out = subprocess.check_output(["python3", "bi-att-flow/get_answer.py",
+                                   "--paragraph", paragraph, "--question", question])
+    return str(out, "utf-8")
 
 
 def get_questions(paragraph):
