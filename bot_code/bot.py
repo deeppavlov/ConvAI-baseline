@@ -11,6 +11,8 @@ import configparser
 from telegram import ChatAction
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from telegram.parsemode import ParseMode
+import sys
+sys.path.append(os.getcwd())
 
 from bot_code.state_tracker import StateTracker, StoriesHandler
 

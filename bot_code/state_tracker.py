@@ -28,7 +28,7 @@ class StateTracker:
 
 
 class StoriesHandler:
-    def __init__(self, filename="../data/train-v1.1.json"):
+    def __init__(self, filename="data/train-v1.1.json"):
         with open(filename) as f:
             dataset = json.load(f)
         self.stories = [par["context"] for text in dataset["data"] for par in text["paragraphs"]]
