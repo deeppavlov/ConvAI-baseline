@@ -1,15 +1,14 @@
 import random
 import json
-
-from question_generation.get_qnas import ConnectionHandler
+import subprocess
 
 
 class StateTracker:
     def __init__(self, salt):
         self.salt = salt
         self.get_answer = lambda x: get_answer(self.salt, x)
-        connect = ConnectionHandler()
-        self.questions = connect([{"src": line} for line in self.salt.split("\n")])
+        out = subprocess.check_output(["question_generation/get_qnas", self.salt])
+        self.questions = [line.split('\t') for line in str(out, "utf-8").split("\n")]
         self.used_questions = []
         self._qa_clf = dummy_clf
 
