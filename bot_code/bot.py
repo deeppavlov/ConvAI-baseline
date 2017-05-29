@@ -2,24 +2,41 @@
 
 import collections
 import logging
+import os
 import random
 import string
 from ast import literal_eval
 from time import sleep
-
+import configparser
 from telegram import ChatAction
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from telegram.parsemode import ParseMode
 
-from bot_code.config import TOKEN, CONTEXT_SIZE, REPLY_HIST_SIZE
 from bot_code.state_tracker import StateTracker, StoriesHandler
+
+CONFPATH = "config.ini"
+conf = configparser.ConfigParser()
+if not os.path.exists(CONFPATH):
+    print("Creating stub config...\n"
+          "You need to replace STUB with your actual token")
+    conf["bot"] = {"TOKEN": "STUB", "CONTEXT_SIZE": 3, "REPLY_HIST_SIZE": 20, "LOGFILE": 'log.txt'}
+    with open(CONFPATH, 'wt') as configfile:
+        conf.write(configfile)
+
+conf.read(CONFPATH)
+
+TOKEN = conf["bot"]["TOKEN"]
+CONTEXT_SIZE = conf["bot"]["CONTEXT_SIZE"]
+REPLY_HIST_SIZE = conf["bot"]["REPLY_HIST_SIZE"]
+LOGFILE = conf["bot"]["LOGFILE"]
+
 
 # Enable logging
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-fh = logging.FileHandler('../output/log.txt')
+fh = logging.FileHandler(LOGFILE)
 fh.setLevel(logging.DEBUG)
 fh.setFormatter(formatter)
 
