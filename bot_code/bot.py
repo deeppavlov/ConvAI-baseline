@@ -86,7 +86,9 @@ def mess2dict(mes):
 def start(bot, update):
     md = mess2dict(update.message)
     sender_id = str(md['from']['id'])
-    ai.history[sender_id] = {"state_tracker": StateTracker(ai.stories.get_one()),
+    story = ai.stories.get_one()
+    bot.sendMessage(update.message.chat_id, text=story)
+    ai.history[sender_id] = {"state_tracker": StateTracker(story),
                              'context': collections.deque(maxlen=CONTEXT_SIZE),
                              'replies': collections.deque(maxlen=REPLY_HIST_SIZE)}
     if random.random() > 0.5:
