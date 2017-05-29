@@ -5,3 +5,8 @@ if [ ! -d data/train-v1.1.json ]; then
 fi
 
 pip3 install -r bot_code/requirements.txt
+
+# question generation
+cd question_generation
+./setup
+cd $OLDPWD

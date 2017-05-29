@@ -1,12 +1,15 @@
 import random
 import json
 
+from question_generation.get_qnas import ConnectionHandler
+
 
 class StateTracker:
     def __init__(self, salt):
         self.salt = salt
         self.get_answer = lambda x: get_answer(self.salt, x)
-        self.questions = get_questions(self.salt)
+        connect = ConnectionHandler()
+        self.questions = connect([{"src": line} for line in self.salt.split("\n")])
         self.used_questions = []
         self._qa_clf = dummy_clf
 
