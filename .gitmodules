@@ -1,3 +1,7 @@
 [submodule "question_generation"]
 	path = question_generation
 	url = git@github.com:MIPTDeepLearningLab/question_generation.git
+[submodule "bi-att-flow"]
+	path = bi-att-flow
+	url = git@github.com:MIPTDeepLearningLab/bi-att-flow.git
+	branch = convai-demo
