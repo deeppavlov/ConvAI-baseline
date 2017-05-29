@@ -38,11 +38,11 @@ class StoriesHandler:
 
 
 def get_answer(paragraph, question):
-    return "STUB"
+    return "STUB ANSWER"
 
 
 def get_questions(paragraph):
-    return []
+    return [["STUB QUESTION 1"], ["STUB QUESTION 2"]]
 
 
 def dummy_clf(string):
