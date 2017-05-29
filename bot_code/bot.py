@@ -26,8 +26,8 @@ if not os.path.exists(CONFPATH):
 conf.read(CONFPATH)
 
 TOKEN = conf["bot"]["TOKEN"]
-CONTEXT_SIZE = conf["bot"]["CONTEXT_SIZE"]
-REPLY_HIST_SIZE = conf["bot"]["REPLY_HIST_SIZE"]
+CONTEXT_SIZE = int(conf["bot"]["CONTEXT_SIZE"])
+REPLY_HIST_SIZE = int(conf["bot"]["REPLY_HIST_SIZE"])
 LOGFILE = conf["bot"]["LOGFILE"]
 
 
@@ -100,8 +100,8 @@ def help(bot, update):
     md = mess2dict(update.message)
     sender_id = md['from']['id']
     try:
-        sender_fname = md['from']['first_name'].encode('utf-8')
-        sender_lname = md['from']['last_name'].encode('utf-8')
+        sender_fname = md['from']['first_name']
+        sender_lname = md['from']['last_name']
     except:
         sender_fname = sender_id
         sender_lname = ''
@@ -115,8 +115,8 @@ def echo(bot, update):
     text = update.message.text
     md = mess2dict(update.message)
     try:
-        sender_fname = md['from']['first_name'].encode('utf-8')
-        sender_lname = md['from']['last_name'].encode('utf-8')
+        sender_fname = md['from']['first_name']
+        sender_lname = md['from']['last_name']
     except:
         sender_fname = str(md['from']['id'])
         sender_lname = ""
@@ -130,7 +130,7 @@ def echo(bot, update):
 
         rep = ai.history[sender_id]["state_tracker"].get_reply(text)
         ai.history[sender_id]['replies'].append(rep)
-        logger.info('Hermes replies: {}'.format(rep))
+        logger.info('bot replies: {}'.format(rep))
         bot_send_message(bot, update, rep)
 
 
