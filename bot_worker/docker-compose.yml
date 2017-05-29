@@ -1,0 +1,20 @@
+version: '2'
+services:
+  hermes_bot:
+    restart: always
+    build: ./
+    volumes:
+     - ../lm_1b/:/src/lm_1b
+     - ../data/:/src/data
+     - ../output:/src/output
+     - nvidia_driver_367.57:/usr/local/nvidia:ro
+    working_dir: /src/lm_1b
+    command: "python bot.py"    
+    devices:
+     - /dev/nvidiactl
+     - /dev/nvidia-uvm
+     - /dev/nvidia0
+
+volumes:
+  nvidia_driver_367.57:
+    external: true    
