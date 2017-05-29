@@ -1,0 +1,3 @@
+[submodule "question_generation"]
+	path = question_generation
+	url = git@github.com:MIPTDeepLearningLab/question_generation.git
