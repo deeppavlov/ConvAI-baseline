@@ -20,7 +20,7 @@ CONFPATH = "config.ini"
 conf = configparser.ConfigParser()
 if not os.path.exists(CONFPATH):
     print("Creating stub config...\n"
-          "You need to replace STUB with your actual token")
+          "You need to replace STUB with your actual token in file {}".format(CONFPATH))
     conf["bot"] = {"TOKEN": "STUB", "CONTEXT_SIZE": 3, "REPLY_HIST_SIZE": 20, "LOGFILE": 'log.txt'}
     with open(CONFPATH, 'wt') as configfile:
         conf.write(configfile)
