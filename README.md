@@ -1,6 +1,6 @@
 # Conversational Intelligence Challenge baseline solution
 
-It is based on two papers: 
+It is based on two papers:
 * Neural Question Generation from Text: A Preliminary Study
 https://arxiv.org/abs/1704.01792
 
@@ -11,24 +11,21 @@ We are using forked repo of Allen AI2 bi-att-flow: https://github.com/allenai/bi
 
 ## Requirements
 * Docker ver. 17.03+:
-
-Ubuntu: https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repository
-Mac: https://download.docker.com/mac/stable/Docker.dmg
-Docker-compose ver. 1.13.0+: https://docs.docker.com/compose/install/
-
+    * Ubuntu: https://docs.docker.com/engine/installation/linux/ubuntu/#install-using-the-repository
+    * Mac: https://download.docker.com/mac/stable/Docker.dmg
+    * Docker-compose ver. 1.13.0+: https://docs.docker.com/compose/install/
 * Python 3
 * ZeroMQ
+* pyzmq dependencies:
+    * Ubuntu: ```sudo apt-get install libzmq3-dev```
+    * Mac: ```brew install zeromq --with-libpgm```
 
-pyzmq dependencies: 
-   * Ubuntu ```sudo apt-get install libzmq3-dev``` 
-   * or for Mac ```brew install zeromq --with-libpgm```
-
-Python packages will be installed by setup script.
+Python packages will be installed by ```setup.sh``` script.
 
 ## Setup
-run ```setup.sh```
+Run ```setup.sh```
 
-Setup will download docker images, models and data files, so you have no need to download any of that by youself.
+Setup will download docker images, models and data files, so you have no need to download any of that by yourself.
 
 ## Bot
 Simply run:
