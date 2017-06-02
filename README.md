@@ -19,7 +19,9 @@ Docker-compose ver. 1.13.0+: https://docs.docker.com/compose/install/
 * Python 3
 * ZeroMQ
 
-pyzmq dependencies: Ubuntu sudo apt-get install libzmq3-dev or for Mac brew install zeromq --with-libpgm
+pyzmq dependencies: 
+   * Ubuntu ```sudo apt-get install libzmq3-dev``` 
+   * or for Mac ```brew install zeromq --with-libpgm```
 
 Python packages will be installed by setup script.
 
