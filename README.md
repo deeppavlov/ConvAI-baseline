@@ -40,6 +40,5 @@ Run ```setup.sh```
 
 Setup will download docker images, models and data files, so you have no need to download any of that by yourself.
 
-## Bot
-Simply run:
-```python3 bot_code/bot.py```
+##  Running
+```./bot.sh start|stop|restart|status```
