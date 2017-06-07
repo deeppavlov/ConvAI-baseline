@@ -36,7 +36,7 @@ start() {
 
 
     echo "starting $script_name"
-    nohup "$script_name" &
+    nohup "python3 $script_name" &
     echo $! > "$pid_file"
 }
 
