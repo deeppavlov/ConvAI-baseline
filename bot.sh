@@ -41,8 +41,12 @@ start() {
 }
 
 stop() {
-    # `kill -0 pid` returns successfully if the pid is running, but does not
-    # actually kill it.
+    kill $1 2>/dev/null
+    rm "$pid_file"
+    echo "stopped"
+}
+
+stopall() {
     kill $1 2>/dev/null
     rm "$pid_file"
 
@@ -74,6 +78,10 @@ case $1 in
         stop $pid
         start
         ;;
+    restartall)
+        stopall $pid
+        start
+        ;;
     status)
         if $running; then
             echo "$script_name is running with PID $pid"
@@ -81,7 +89,8 @@ case $1 in
             echo "$script_name is not running"
         fi
         ;;
-    *)  echo "usage: $0 <start|stop|restart|status>"
+    *)  echo "usage: $0 <start|stop|stopall|restart|restartall|status>"
+        echo "stop is killing the bot only, while stopall shuts down all the services with it"
         exit
         ;;
 esac
