@@ -40,5 +40,8 @@ Run ```setup.sh```
 
 Setup will download docker images, models and data files, so you have no need to download any of that by yourself.
 
+### Telegram integration
+To make your bot work, you need to run it first time. It will create ```bot_code/config.ini``` file with stubs for secret tokens from Telegram. You need to register your our bot [here](https://core.telegram.org/bots#botfather) and replace stub tokens with provided ones.
+
 ##  Running
 ```./bot.sh start|stop|restart|status```
