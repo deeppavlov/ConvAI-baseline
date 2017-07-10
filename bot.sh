@@ -74,6 +74,9 @@ case $1 in
     stop)
         stop $pid
         ;;
+    stopall)
+        stopall $pid
+        ;;
     restart)
         stop $pid
         start
