@@ -31,7 +31,7 @@ start() {
     local opennmt_run_cmd="cd /root/opennmt && th tools/translation_server.lua \
       -host 0.0.0.0 -port 5556  -model /root/data/model.t7 -beam_size 12"
     if [ ! `docker inspect -f {{.State.Running}} opennmt 2>/dev/null` ]; then
-        docker run -d --name opennmt -it -p 5556:5556 -v $(pwd)/data:/root/data sld3/opennmt bash -c "$opennmt_run_cmd"
+        docker run -d --name opennmt -it -p 5556:5556 -v $(pwd)/question_generation/data:/root/data sld3/opennmt bash -c "$opennmt_run_cmd"
     fi
 
 
